@@ -1,0 +1,3 @@
+.closed-sidebar:not(.closed-sidebar-mobile) .smalllogo {
+  display: none;
+}

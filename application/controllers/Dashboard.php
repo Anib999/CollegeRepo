@@ -20,6 +20,17 @@ class Dashboard extends CI_Controller {
     $this->load->view('common/footer');
 	}
 
+	public function projects(){
+		$data = 'Projects';
+		$icons = 'pe-7s-graph1 icon-gradient bg-premium-dark';
+		$this->load->view('common/header',[
+			'title' => $data,
+			'icon' => $icons,
+		]);
+		$this->load->view('dynamicContent/dashboard/projects');
+    $this->load->view('common/footer');
+	}
+
 	public function userprofile(){
     $data = 'Profile';
 		$icons = 'pe-7s-user icon-gradient bg-premium-dark';

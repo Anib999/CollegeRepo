@@ -5,7 +5,7 @@
       <div class="app-footer-left">
         <ul class="nav">
           <li class="nav-item">
-            All Rights Reserved &copy;
+            All Rights Reserved &copy; 2020 - CollegeRepo
           </li>
         </ul>
       </div>
@@ -23,6 +23,6 @@
 </div>
 </div>
 
-<script type="text/javascript" src="<?= base_url('assets/js/main.js') ?>"></script>
+<script type="text/javascript" src="<?= base_url('assets/js/newmain.js') ?>"></script>
 </body>
 </html>

@@ -5,18 +5,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="Content-Language" content="en">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title><?= $title ?></title>
+  <title>CollegeRepo | <?= $title ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
   <meta name="msapplication-tap-highlight" content="no">
+  <link rel="icon" href="<?= base_url('assets/images/sma.png') ?>">
   <link href="<?= base_url('assets/css/main.css') ?>" rel="stylesheet">
-  <style>
-  .closed-sidebar:not(.closed-sidebar-mobile) .smalllogo {
-    display: none;
-  }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="<?= base_url('assets/css/appmain.css') ?>" rel="stylesheet">
+  <script src="<?= base_url('assets/js/datatables/jquery.min.js') ?>" charset="utf-8"></script>
+  <script src="<?= base_url('assets/js/sweetalert/sweetalert2.js') ?>" charset="utf-8"></script>
 </head>
 <body>
-  <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+  <input type="hidden" id="base_url" name="" value="<?= base_url() ?>" style="display:none;">
+  <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header closed-sidebar">
     <div class="app-header header-shadow">
       <div class="app-header__logo">
         <a href="<?= base_url('Dashboard/index') ?>">
@@ -67,7 +68,7 @@
               </a>
             </li>
             <li class="btn-group nav-item">
-              <a href="javascript:void(0);" class="nav-link">
+              <a href="<?= base_url('Dashboard/projects') ?>" class="nav-link">
                 <i class="nav-link-icon fa fa-edit"></i>
                 Projects
               </a>
@@ -94,7 +95,7 @@
                       <a href="<?= base_url('Dashboard/userprofile') ?>" class="nav-link">
                         <button type="button" tabindex="0" class="dropdown-item">User Account</button>
                       </a>
-                      <a href="" class="nav-link">
+                      <a href="<?= base_url('Login/logout') ?>" class="nav-link">
                         <button type="button" tabindex="0" class="dropdown-item">Log Out</button>
                       </a>
                     </div>
@@ -102,10 +103,7 @@
                 </div>
                 <div class="widget-content-left  ml-3 header-user-info">
                   <div class="widget-heading">
-                    Admin
-                  </div>
-                  <div class="widget-subheading">
-                    Administrator
+                    <?= $this->session->userdata('username') ?>
                   </div>
                 </div>
               </div>
@@ -179,6 +177,40 @@
                       Teachers
                     </a>
                   </li>
+                  <li>
+                    <a href="<?= base_url('Users/viewAllUsers') ?>">
+                      <i class="metismenu-icon"></i>
+                      View All Users
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="app-sidebar__heading">File Manager</li>
+              <li>
+                <a href="#">
+                  <i class="metismenu-icon pe-7s-cloud-upload"></i>
+                  Upload/Download
+                  <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                </a>
+                <ul>
+                  <li>
+                    <a href="<?= base_url('FileManager/uploadfile') ?>">
+                      <i class="metismenu-icon"></i>
+                      Upload files
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<?= base_url('FileManager/downloadfile') ?>">
+                      <i class="metismenu-icon"></i>
+                      Download files
+                    </a>
+                  </li>
+                  <li>
+                    <a href="<?= base_url('FileManager/managefile') ?>">
+                      <i class="metismenu-icon"></i>
+                      Manage Files
+                    </a>
+                  </li>
                 </ul>
               </li>
               <li class="app-sidebar__heading">Tools</li>
@@ -240,7 +272,7 @@
                 <div class="d-inline-block dropdown">
                   <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
                     <span class="btn-icon-wrapper pr-2 opacity-7">
-                      <i class="fa fa-business-time fa-w-20"></i>
+                      <!-- <i class="fa fa-business-time fa-w-20"></i> -->
                     </span>
                     Buttons
                   </button>
